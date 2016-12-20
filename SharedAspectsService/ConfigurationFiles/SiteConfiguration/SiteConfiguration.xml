@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SiteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/VeriBranchMessages.xsd">
+  <IntegrationData>
+    <ClassType>Custom.IntegrationCore.HostIntegrationImplementation, Custom.IntegrationCore</ClassType>
+  </IntegrationData>
+  <ChannelList>
+    <Channel Name="Undefined" ID="0"/>
+    <Channel Name="Branch" ID="1"/>
+    <Channel Name="InternetBanking" ID="2"/>
+    <Channel Name="CallCenter" ID="3"/>
+    <Channel Name="IVR" ID="4"/>
+    <Channel Name="BackOffice" ID="5"/>
+    <Channel Name="Intranet" ID="6"/>
+    <Channel Name="ATM" ID="7"/>
+    <Channel Name="KIOSK" ID="8"/>
+    <Channel Name="TV" ID="9"/>
+    <Channel Name="MobileBanking" ID="10"/>
+    <Channel Name="HelpDesk" ID="11"/>
+    <Channel Name="SharedAspects" ID="12"/>
+    <Channel Name="SYSTEM" ID="13"/>
+  </ChannelList>
+</SiteConfiguration>

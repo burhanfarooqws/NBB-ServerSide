@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GeneratorConfig>
+  <!-- Type for StaticDataDefinition ! Do Not Modify ! -->
+  <Type Name="DataDefinition" Impl="VeriBranch.Utilities.Caching.StaticDataDefinition, VeriBranch.Utilities" />
+  <!-- Define Data Provider Types here -->
+  <Type Name="SqlServerDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.SqlServerDataProvider, VeriBranch.WebApplication.StaticData" />
+  <Type Name="Db2ServerDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.Db2ServerDataProvider, VeriBranch.WebApplication.StaticData" />
+  <Type Name="OracleServerDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.OracleServerDataProvider, VeriBranch.WebApplication.StaticData" />
+  <Type Name="XmlFileDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.XmlFileDataProvider, VeriBranch.WebApplication.StaticData" />
+  <Type Name="DelegatedDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.DelegatedDataProvider, VeriBranch.WebApplication.StaticData" />
+  <Type Name="TransactionDataProvider" Impl="VeriBranch.WebApplication.StaticData.DataProviders.TransactionDataProvider, VeriBranch.WebApplication.StaticData" />
+  <!-- Define Expiration Handler Types here -->
+  <Type Name="AbsoluteTime" Impl="VeriBranch.Utilities.Caching.Expirations.AbsoluteTime, VeriBranch.Utilities" />
+  <Type Name="ExtendedFormat" Impl="VeriBranch.Utilities.Caching.Expirations.ExtendedFormat, VeriBranch.Utilities" />
+  <Type Name="ExtendedFormatTime" Impl="VeriBranch.Utilities.Caching.Expirations.ExtendedFormatTime, VeriBranch.Utilities" />
+  <Type Name="FileDependency" Impl="VeriBranch.Utilities.Caching.Expirations.FileDependency, VeriBranch.Utilities" />
+  <Type Name="SlidingTime" Impl="VeriBranch.Utilities.Caching.Expirations.SlidingTime, VeriBranch.Utilities" />
+  <Type Name="WebFileDependency" Impl="VeriBranch.Utilities.Caching.Expirations.WebFileDependency, VeriBranch.Utilities" />
+  <Type Name="Reoccurrence" Impl="VeriBranch.Utilities.Caching.Expirations.Reoccurrence, VeriBranch.Utilities" />
+  <Type Name="NeverExpired" Impl="VeriBranch.Utilities.Caching.Expirations.NeverExpired, VeriBranch.Utilities" />
+  <!--Reoccurence
+  300   = 5 minutes
+  900   = 15 minutes
+  1800  = 30 minutes
+  3600  = 1 hours
+  7200  = 2 hours
+  14400 = 4 hours
+  28800 = 8 hours
+  Infinite  = NeverExpired
+  -->
+  <!-- Define Static Data Definitions here -->
+  <Reference IsActive="true" Include="StaticDataConfig.xml"/>
+
+  <Object Name="ConfigurationParameters" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ConfigurationParametersPresenter, VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpConfigurationParameter</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ConfigurationParametersFilter, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.ConfigurationParametersPresenter, VeriBranch.Utilities" DependsOn="[ConfigurationParameters]">
+    <Field Name="instance" ObjectRef="ConfigurationParameters.DataPresenter" />
+  </Static>
+  <Object Name="TransactionConfig" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionConfigurationPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpTransactionConfigView</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ActiveChannelsFilter, VeriBranch.Utilities" />
+      <Field Name="decorator" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionConfigurationDecorator, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionConfigurationPresenter,  VeriBranch.Utilities" DependsOn="[VpTransactionConfig]">
+    <Field Name="instance" ObjectRef="TransactionConfig.DataPresenter" />
+  </Static>
+  <Object Name="StringResource" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.StringResourcePresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpStringResource</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ActiveChannelsFilter, VeriBranch.Utilities" />
+      <Field Name="decorator" Impl="VeriBranch.Utilities.ConfigurationUtilities.StringResourceDecorator, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.StringResourcePresenter,  VeriBranch.Utilities" DependsOn="[VpStringResource]">
+    <Field Name="instance" ObjectRef="StringResource.DataPresenter" />
+  </Static>
+  <Object Name="TransactionDefinition" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionDefinitionPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpTransactionAttributesView</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ActiveChannelsFilter, VeriBranch.Utilities" />
+      <Field Name="decorator" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionDefinitionDecorator, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionDefinitionPresenter,  VeriBranch.Utilities" DependsOn="[VpTransactionAttributesView]">
+    <Field Name="instance" ObjectRef="TransactionDefinition.DataPresenter" />
+  </Static>
+  <Object Name="RoleListTransaction" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.RolesPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpRole</Prop>
+      </Field>
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.RolesPresenter,  VeriBranch.Utilities" DependsOn="">
+    <Field Name="instance" ObjectRef="RoleListTransaction.DataPresenter" />
+  </Static>
+  <Object Name="MenuTranslation" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.MenuTranslationPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpMenuTranslation</Prop>
+      </Field>
+      <Field Name="decorator" Impl="VeriBranch.Utilities.ConfigurationUtilities.MenuTranslationDecorator, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.MenuTranslationPresenter,  VeriBranch.Utilities" DependsOn="[VpMenuTranslation]">
+    <Field Name="instance" ObjectRef="MenuTranslation.DataPresenter" />
+  </Static>
+  <Object Name="TransactionGroupMapping" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionGroupMappingPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpTransactionGroupView</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ActiveChannelsFilter, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionGroupMappingPresenter,  VeriBranch.Utilities" DependsOn="[VpTransactionGroupView]">
+    <Field Name="instance" ObjectRef="TransactionGroupMapping.DataPresenter" />
+  </Static>
+  <Object Name="TransactionGroup" TypeRef="DataDefinition">
+    <Field Name="DataPresenter" Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionGroupPresenter,  VeriBranch.Utilities" />
+    <Field Name="DataProvider" TypeRef="SqlServerDataProvider">
+      <Field Name="staticDataRequest">
+        <Prop Name="TableName">VpTransactionGroup</Prop>
+      </Field>
+      <Field Name="staticDataFilter" Impl="VeriBranch.Utilities.ConfigurationUtilities.ActiveChannelsFilter, VeriBranch.Utilities" />
+    </Field>
+    <Field Name="ExpirationHandler" TypeRef="Reoccurrence">
+      <Ctor>
+        <Parm Name="CacheReoccurrenceTime" Impl="System.String">14400</Parm>
+      </Ctor>
+    </Field>
+  </Object>
+  <Static Impl="VeriBranch.Utilities.ConfigurationUtilities.TransactionGroupPresenter,  VeriBranch.Utilities" DependsOn="[VpTransactionGroup]">
+    <Field Name="instance" ObjectRef="TransactionGroup.DataPresenter" />
+  </Static>
+</GeneratorConfig>

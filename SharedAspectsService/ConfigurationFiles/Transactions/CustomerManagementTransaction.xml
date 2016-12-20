@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<TransactionConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/VeriBranchMessages.xsd">
+  <Name>CustomerManagementTransaction</Name>
+  <ImplementationData d2p1:IntegrationLayer="VeriBranch" d2p1:HostImplementationType="CustomImplementation" d2p1:MethodType="Undefined" xmlns:d2p1="http://tempuri.org/VeriBranchMessages.xsd">
+    <d2p1:ClassType>VeriBranch.Business.SharedAspects.Transactions.CustomerManagementTransaction, VeriBranch.Business.SharedAspects.Transactions</d2p1:ClassType>
+    <d2p1:RequestType>VeriBranch.Common.MessageDefinitions.CustomerManagementRequest, VeriBranch.Common.MessageDefinitions</d2p1:RequestType>
+    <d2p1:ResponseType>VeriBranch.Common.MessageDefinitions.CustomerManagementResponse, VeriBranch.Common.MessageDefinitions</d2p1:ResponseType>
+  </ImplementationData>
+</TransactionConfig>

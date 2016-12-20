@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<TransactionConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/VeriBranchMessages.xsd">
+  <Name>CRMCreateRetailTestUserTransaction</Name>
+  <ImplementationData d2p1:IntegrationLayer="Host" d2p1:HostImplementationType="WebServiceCallMapping" d2p1:MethodType="Undefined" xmlns:d2p1="http://tempuri.org/VeriBranchMessages.xsd">
+    <d2p1:RequestType>VeriBranch.Common.MessageDefinitions.CreateTestUserRequest, VeriBranch.Common.MessageDefinitions</d2p1:RequestType>
+    <d2p1:ResponseType>VeriBranch.Common.MessageDefinitions.CreateTestUserResponse, VeriBranch.Common.MessageDefinitions</d2p1:ResponseType>
+  </ImplementationData>
+</TransactionConfig>
