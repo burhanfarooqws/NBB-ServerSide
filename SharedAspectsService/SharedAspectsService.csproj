@@ -67,8 +67,8 @@
       <HintPath>..\..\..\packages\Microsoft.Owin.Cors.3.0.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -83,6 +83,7 @@
       <HintPath>..\..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -97,6 +98,7 @@
     <Reference Include="Roslyn.Compilers.CSharp">
       <HintPath>..\..\..\ExternalLibraries\Roslyn\Roslyn.Compilers.CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
@@ -137,6 +139,7 @@
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -186,11 +189,14 @@
     <Content Include="ConfigurationFiles\Transactions\CRMCreateCorporateTestUserTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\CRMCreateRetailTestUserTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\CustomerManagementTransaction.xml" />
+    <Content Include="ConfigurationFiles\Transactions\GenerateSoftTokenTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\GetMenuListTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\GetRoleListTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\PassGeneratorLoginTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\SendSmsPasswordTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\SimCardChangeManagementTransaction.xml" />
+    <Content Include="ConfigurationFiles\Transactions\SoftTokenDeviceExistenceTransaction.xml" />
+    <Content Include="ConfigurationFiles\Transactions\SoftTokenRegistrationTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\SystemGeneratedPasswordTransaction.xml" />
     <Content Include="ConfigurationFiles\Transactions\TemenosTest.xml" />
     <Content Include="ConfigurationFiles\Transactions\TransactionExtraRightManagement.xml" />
@@ -198,6 +204,7 @@
     <Content Include="ConfigurationFiles\Transactions\UserListTransaction.xml" />
     <Content Include="IVRIntegration.svc" />
     <Content Include="CRMIntegration.svc" />
+    <Content Include="Service1.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -211,19 +218,28 @@
     <Compile Include="HttpHandlers\InvalidateCacheHandler.cs" />
     <Compile Include="HttpModules\GlobalModule.cs" />
     <Compile Include="Inspector\MessageInspector.cs" />
+    <Compile Include="IService1.cs" />
     <Compile Include="IVRIntegration.svc.cs">
       <DependentUpon>IVRIntegration.svc</DependentUpon>
     </Compile>
     <Compile Include="CRMIntegration.svc.cs">
       <DependentUpon>CRMIntegration.svc</DependentUpon>
     </Compile>
+    <Compile Include="Models\GenerateSoftTokenModel.cs" />
+    <Compile Include="Models\SoftTokenDeviceExistenceModel.cs" />
+    <Compile Include="Models\SoftTokenRegistrationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CustomOAuthProvider.cs" />
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
     <Compile Include="ServiceInterfaces\IIVRIntegration.cs" />
     <Compile Include="ServiceInterfaces\ICRMIntegration.cs" />
     <Compile Include="Inspector\SoapHeaderEndpointBehavior.cs" />
     <Compile Include="Inspector\SoapHeaderWsdlExport.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Startup.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StaticData\StaticDataInitializer.cs" />
     <Compile Include="Inspector\VeriBranchMessageHeader.cs" />
   </ItemGroup>

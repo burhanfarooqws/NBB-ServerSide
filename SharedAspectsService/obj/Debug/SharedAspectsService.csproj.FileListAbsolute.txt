@@ -76,5 +76,3 @@ C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBra
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.csprojResolveAssemblyReference.cache
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.dll
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.pdb
-C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Utilities.pdb
-C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Business.Transactions.pdb

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<TransactionConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/VeriBranchMessages.xsd">
+  <Name>GenerateSoftTokenTransaction</Name>
+  <ImplementationData p4:IntegrationLayer="VeriBranch" p4:HostImplementationType="CustomImplementation" p4:MethodType="Undefined" Condition="" xmlns:p4="http://tempuri.org/VeriBranchMessages.xsd">
+    <p4:SectionNumber xsi:nil="true" />
+    <p4:ClassType>Custom.Business.Internet.Transactions.GenerateSoftTokenTransaction, Custom.Business.Transactions</p4:ClassType>
+    <p4:RequestType>VeriBranch.Common.MessageDefinitions.GenerateSoftTokenRequest, VeriBranch.Common.MessageDefinitions</p4:RequestType>
+    <p4:ResponseType>VeriBranch.Common.MessageDefinitions.GenerateSoftTokenResponse, VeriBranch.Common.MessageDefinitions</p4:ResponseType>
+  </ImplementationData>
+  <Simulate>false</Simulate>
+  <KeepChangeSet>false</KeepChangeSet>
+  <DisableClientAccess>false</DisableClientAccess>
+</TransactionConfig>
