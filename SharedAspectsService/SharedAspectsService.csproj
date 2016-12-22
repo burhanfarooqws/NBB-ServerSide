@@ -210,6 +210,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AESEncrytDecry.cs" />
     <Compile Include="Controllers\MobileServiceController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataContracts\DataContracts.cs" />

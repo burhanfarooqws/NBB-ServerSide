@@ -83,8 +83,8 @@ namespace SharedAspectsService.Services
                 CustomerId = request.CustomerId,
                 DeviceId = request.DeviceId,
                 OTP = request.OTP,
-                Password = request.Password,//Encryption.EncryptString(request.Password, Convert.ToString(ConfigurationParametersPresenter.GetParameter("RSA.PrivateKey"))),
-                STPassword = request.STPassword,
+                Password = AESEncrytDecry.DecryptStringAES(request.Password),
+                STPassword = AESEncrytDecry.DecryptStringAES(request.STPassword),
                 UseFingerPrint = request.UseFingerPrint
             });
 
@@ -94,6 +94,7 @@ namespace SharedAspectsService.Services
             };
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
+       
         private StaticDataConfigResponse StaticDataInitializer()
         {
             StaticDataConfigResponse staticDataConfigResponse = new StaticDataConfigResponse();

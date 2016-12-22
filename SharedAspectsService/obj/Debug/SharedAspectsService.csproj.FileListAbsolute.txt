@@ -76,3 +76,12 @@ C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBra
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.csprojResolveAssemblyReference.cache
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.dll
 C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\obj\Debug\SharedAspectsService.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Utilities.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.DataAccess.dll
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Common.UIModels.dll
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\TypeLite.dll
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.DataAccess.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Common.Formatters.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\VeriBranch.Common.UIModels.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\TypeLite.pdb
+C:\Projects\VeriBranch\NBB\MAIN\Source\Business\SharedAspectsService\bin\TypeLite.xml
