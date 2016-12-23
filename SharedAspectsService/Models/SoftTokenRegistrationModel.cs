@@ -10,7 +10,7 @@ namespace SharedAspectsService.Models
         public string AccountNumber { get; set; }
         public string AtmCardNumber { get; set; }
         public string AtmPin { get; set; }
-        public string CustomerId { get; set; }
+        public string UserId { get; set; }
         public string DeviceId { get; set; }
         public string OTP { get; set; }
         public string Password { get; set; }

@@ -51,6 +51,7 @@ namespace SharedAspectsService.Services
                 UseFingerPrint = tnxResponse.UseFingerPrint,
                 UserId = tnxResponse.UserId
             };
+            if (response.IsExisting == false) return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Device not registered.");
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
@@ -80,11 +81,11 @@ namespace SharedAspectsService.Services
                 AccountNumber = request.AccountNumber,
                 AtmCardNumber = request.AtmCardNumber,
                 AtmPin = request.AtmPin,
-                CustomerId = request.CustomerId,
+                CustomerId = request.UserId,
                 DeviceId = request.DeviceId,
                 OTP = request.OTP,
-                Password = AESEncrytDecry.DecryptStringAES(request.Password),
-                STPassword = AESEncrytDecry.DecryptStringAES(request.STPassword),
+                Password = request.Password,
+                STPassword = request.STPassword,
                 UseFingerPrint = request.UseFingerPrint
             });
 

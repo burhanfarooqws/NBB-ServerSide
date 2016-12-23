@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="Scripts/rsa.js" type="text/javascript"></script>
+    <script src="Scripts/utility.js" type="text/javascript"></script>
+    <link href="Styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#btnClick').click(function () {
+                EncryptPassword();
+            });
+        });
+
+        // encryption
+        function EncryptPassword() {
+            var rsa = new RSAKey();
+            var k = Convert($('#txtPubKeyB64').val());
+            var m = Convert($('#txtPubKeyExp').val());
+            rsa.setPublic(k, '10001');
+            var res = rsa.encrypt($('#txtPassword').val());
+            $('#txtEncrypted').val(hex2b64(res));
+        }
+        // encryption
+
+    </script>
+</head>
+<body>
+<div>
+    <label>Public Key: </label><input type="text" id="txtPubKeyB64" value="n3/kUYfBDZyks/16oZAvBD4lAVboluOiW2HW26n5GDPCaE48ErTyF1DsLx2jm9Y3clApuc0lsUgU96nu1rWdTtvDN6OnNDrJQP20Wd9rG+Z/luurReJT+H+HUD9nwDGKEeiz2EYXNgyylOCH89XNYk6U5V5GsSxXvRkadlnfjj0=" /><br />
+    <label>Public Key Exponent: </label><input type="text" id="txtPubKeyExp" value="AQAB" /><br />
+    <label>Password: </label><input type="text" id="txtPassword" /><br />
+    <label>Encrypted Data: </label><textarea id="txtEncrypted" readonly></textarea><br />
+    <input type="button" value="Click" id="btnClick" />
+</div>
+</body>
+</html>
